@@ -61,6 +61,8 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     width: WIDTH * 0.95,
     left: '2.5%',
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   rightTick: {
     height: 40,
@@ -82,5 +84,8 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     fontWeight: '500',
     fontSize: 16,
+  },
+  activity: {
+    marginLeft: 8,
   },
 });

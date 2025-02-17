@@ -5,6 +5,7 @@ import LottieView from 'lottie-react-native';
 import {styles} from './styles';
 
 const ConfirmationScreen = props => {
+  const {orderStatus = 'success'} = props.route.params;
   const handleGoToHome = () => {
     // navigate and reset the entire stack so that back button won't come back to confirmation
     props.navigation.reset({
@@ -13,12 +14,14 @@ const ConfirmationScreen = props => {
     });
   };
 
+  const lottieToShow = orderStatus === 'success' ? require('../../helper/lottie/success.json') : require('../../helper/lottie/pending.json');
+
   return (
     <View style={styles.container}>
       <LottieView
         autoPlay
         loop
-        source={require('../../helper/lottie/success.json')}
+        source={lottieToShow}
         style={styles.lottie}
       />
       <Text style={styles.orderText}>Order Placed!</Text>

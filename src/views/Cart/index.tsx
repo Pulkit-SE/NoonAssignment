@@ -1,5 +1,12 @@
-import React from 'react';
-import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
 
 import BillDetails from './Bill';
 import PaymentOptions from './PaymentOptions';
@@ -9,6 +16,7 @@ import {HEIGHT} from '../../helper/constants';
 
 const CartScreen = props => {
   const {menuItem = {}} = props.route.params;
+  const [isLoading, setIsLoading] = useState(false); // 'idle' | 'pending' | 'success' | 'error'
 
   const renderItem = ({item}) => (
     <View style={styles.container}>
@@ -35,8 +43,22 @@ const CartScreen = props => {
   const addedTax = totalPrice * 0.09;
   const totalPriceWithTax = totalPrice + addedTax;
 
-  const handleSuccess = () => {
-    props.navigation.navigate('Confirmation');
+  const handleSuccess = async () => {
+    try {
+      setIsLoading(true);
+      const result = await new Promise((resolve, reject) => {
+        setTimeout(() => {
+          // Random decision between 'pending' and 'success'. I am currently handling 2 scenarios
+          const randomOutcome = Math.random();
+          if (randomOutcome > 0.5) {
+            resolve('success');
+          } else {
+            resolve('pending');
+          }
+        }, 2000);
+      });
+      props.navigation.navigate('Confirmation', {orderStatus: result});
+    } catch (error) {}
   };
 
   return (
@@ -56,6 +78,7 @@ const CartScreen = props => {
       <PaymentOptions />
       <TouchableOpacity style={styles.payNow} onPress={handleSuccess}>
         <Text style={styles.payNowText}>Pay Now</Text>
+        {isLoading && <ActivityIndicator style={styles.activity} />}
       </TouchableOpacity>
     </View>
   );

@@ -13,7 +13,6 @@ const DetailsScreen = props => {
     setMenuItem(item?.menu);
   }, []);
 
-
   const renderItem = ({item}) => {
     const itemData = menuItem?.filter(menu => menu?.title === item?.title)[0];
 
@@ -28,7 +27,6 @@ const DetailsScreen = props => {
     const handleRemoveItem = () => {
       const index =
         menuItem?.findIndex(menu => menu?.title === item?.title) || 0;
-      console.log('xxx index', index);
       const updatedMenu = cloneDeep(menuItem);
       updatedMenu[index].qty = menuItem[index].qty - 1;
       setMenuItem(updatedMenu);
@@ -45,17 +43,17 @@ const DetailsScreen = props => {
         </View>
         <View style={styles.imgContainer}>
           <Image source={{uri: itemData?.image}} style={styles.imgStyle} />
-          <View style={{flexDirection: 'row'}}>
+          <View style={styles.row}>
             <TouchableOpacity
               disabled={isRemoveItemDisabled}
               onPress={handleRemoveItem}>
-              <Text>-</Text>
+              <Text style={styles.handlerText}>-</Text>
             </TouchableOpacity>
-            <Text>{itemData?.qty}</Text>
+            <Text style={styles.qty}>{itemData?.qty}</Text>
             <TouchableOpacity
               disabled={isAddItemDisabled}
               onPress={handleAddItem}>
-              <Text>+</Text>
+              <Text style={styles.handlerText}>+</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -78,10 +76,19 @@ const DetailsScreen = props => {
     <View style={styles.container}>
       <Image source={{uri: item?.image}} style={styles.restaurantImg} />
       <View style={styles.restaurantDesc}>
-        <Text>{item.name}</Text>
+        <Text style={styles.labelStyle}>{item.name}</Text>
+        <Text numberOfLines={4} style={styles.desc}>
+          {item?.description}
+        </Text>
         <Text>Menu</Text>
       </View>
-      <FlatList data={menuItem} renderItem={renderItem} />
+      <FlatList
+        data={menuItem}
+        renderItem={renderItem}
+        contentContainerStyle={{padding: 12}}
+        showsVerticalScrollIndicator={false}
+        bounces={false}
+      />
       {cartItems > 0 && (
         <TouchableOpacity
           onPress={handleGoToCart}

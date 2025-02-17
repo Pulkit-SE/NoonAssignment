@@ -16,18 +16,24 @@ export const RESTAURANT_DATA = [
         maxItems: 5,
         price: '$5',
         qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
       },
       {
         title: 'Bao',
         maxItems: 2,
         price: '$9',
         qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
       },
       {
         title: 'Burger',
         maxItems: 2,
         price: '$3.99',
         qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
       },
     ],
   },
@@ -78,30 +84,40 @@ export const RESTAURANT_DATA = [
         maxItems: 8,
         price: '$1.23',
         qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
       },
       {
         title: 'Burger',
         maxItems: 6,
         price: '$7',
         qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
       },
       {
         title: 'Cold drink',
         maxItems: 2,
         price: '$0.99',
         qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
       },
       {
         title: 'Wrap',
         maxItems: 2,
         price: '$4.99',
         qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
       },
       {
         title: 'Garlic bread',
         maxItems: 4,
         price: '$11.99',
         qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
       },
     ],
   },
@@ -118,18 +134,24 @@ export const RESTAURANT_DATA = [
         maxItems: 5,
         price: '$5',
         qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
       },
       {
         title: 'Bao',
         maxItems: 2,
         price: '$9',
         qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
       },
       {
         title: 'Burger',
         maxItems: 2,
         price: '$3.99',
         qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
       },
     ],
   },
@@ -146,18 +168,24 @@ export const RESTAURANT_DATA = [
         maxItems: 5,
         price: '$5',
         qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
       },
       {
         title: 'Fries',
         maxItems: 2,
         price: '$2',
         qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
       },
       {
         title: 'Coke',
         maxItems: 1,
         price: '$3.99',
         qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
       },
     ],
   },
@@ -167,7 +195,7 @@ export const WIDTH = Dimensions.get('screen').width;
 export const HEIGHT = Dimensions.get('screen').height;
 
 export const PAYMENT_METHOD = {
-  icon: 'https://w7.pngwing.com/pngs/667/120/png-transparent-google-pay-2020-hd-logo.png',
+  icon: 'https://www.freeiconspng.com/uploads/google-wallet-icon-9.png',
   name: 'Google Pay',
   tick: 'https://static.vecteezy.com/system/resources/thumbnails/017/350/123/small_2x/green-check-mark-icon-in-round-shape-design-png.png',
 };

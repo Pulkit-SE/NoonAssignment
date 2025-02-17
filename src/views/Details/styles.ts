@@ -10,13 +10,17 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 8,
     padding: 16,
+    borderRadius: 8,
+    borderColor: 'lightgray',
+    backgroundColor: 'white',
   },
   restaurantImg: {
     height: HEIGHT * 0.3,
     width: '100%',
   },
   restaurantDesc: {
-    paddingHorizontal: 8,
+    paddingHorizontal: 12,
+    marginTop: 12,
   },
   container: {
     flex: 1,
@@ -34,6 +38,11 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 4,
   },
+  labelStyle: {
+    fontWeight: '600',
+    fontSize: 18,
+    marginBottom: 4,
+  },
   orderNowContainer: {
     alignItems: 'center',
     backgroundColor: 'orange',
@@ -47,9 +56,24 @@ export const styles = StyleSheet.create({
   imgStyle: {
     height: 80,
     width: 80,
+    borderRadius: 8,
   },
   imgContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  row: {
+    flexDirection: 'row',
+  },
+  handlerText: {
+    fontSize: 16,
+  },
+  qty: {
+    fontSize: 16,
+    marginHorizontal: 4,
+  },
+  desc: {
+    color: 'gray',
+    marginBottom: 12,
   },
 });
