@@ -10,9 +10,19 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-navigation/bottom-tabs": "^7.2.0",
+    "@react-navigation/native": "^7.0.14",
+    "@react-navigation/stack": "^7.1.1",
+    "lodash.clonedeep": "^4.5.0",
+    "lottie-react-native": "^7.2.2",
     "react": "18.3.1",
-    "react-native": "0.77.1"
-  },
+    "react-native": "0.77.1",
+    "react-native-gesture-handler": "^2.23.1",
+    "react-native-get-random-values": "^1.11.0",
+    "react-native-reanimated": "^3.16.7",
+    "react-native-safe-area-context": "^5.2.0",
+    "react-native-screens": "^4.6.0"
+    },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.3",
@@ -25,6 +35,7 @@
     "@react-native/metro-config": "0.77.1",
     "@react-native/typescript-config": "0.77.1",
     "@types/jest": "^29.5.13",
+    "@types/lodash.clonedeep": "^4.5.9",
     "@types/react": "^18.2.6",
     "@types/react-test-renderer": "^18.0.0",
     "eslint": "^8.19.0",
