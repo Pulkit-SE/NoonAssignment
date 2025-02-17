@@ -1,6 +1,75 @@
 import {Dimensions} from 'react-native';
 
-export const CAROUSEL_DATA = [];
+export const CAROUSEL_DATA = [
+  {
+    name: 'Kinoki',
+    id: 1,
+    description: 'A pan asian restaurant',
+    rating: '4.5',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSeeLiytIhEzR_s5fBzWl2Va0s1jy5gseyhA&s',
+    menu: [
+      {
+        title: 'Sushi',
+        maxItems: 5,
+        price: '$5',
+        qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
+      },
+      {
+        title: 'Bao',
+        maxItems: 2,
+        price: '$9',
+        qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
+      },
+      {
+        title: 'Burger',
+        maxItems: 2,
+        price: '$3.99',
+        qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
+      },
+    ],
+  },
+  {
+    name: `Wendy's`,
+    id: 4,
+    description: 'A fast food restaurant',
+    rating: '4.1',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr677Y0tVOyWTR-mshWP-pNjt8FVj8lWAl9Q&s',
+    menu: [
+      {
+        title: 'Sushi',
+        maxItems: 5,
+        price: '$5',
+        qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
+      },
+      {
+        title: 'Bao',
+        maxItems: 2,
+        price: '$9',
+        qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
+      },
+      {
+        title: 'Burger',
+        maxItems: 2,
+        price: '$3.99',
+        qty: 0,
+        image:
+          'https://www.licious.in/blog/wp-content/uploads/2022/04/shutterstock_1617156526-min.jpg',
+      },
+    ],
+  },
+];
 
 export const RESTAURANT_DATA = [
   {

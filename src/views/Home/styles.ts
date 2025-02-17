@@ -26,18 +26,33 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-    paddingHorizontal: 16,
+    paddingTop: 16,
   },
   contentContainer: {
     height: HEIGHT * 0.3,
     marginTop: 16,
+    paddingHorizontal: 16,
   },
   restaurantHeading: {
+    paddingHorizontal: 16,
     fontWeight: '500',
     fontSize: 16,
   },
   title: {
     fontSize: 16,
     fontWeight: '600',
+  },
+  banner: {
+    width: WIDTH * 0.8,
+    height: HEIGHT * 0.2,
+    marginLeft: 12,
+  },
+  bannerItem: {
+    borderRadius: 12,
+    width: WIDTH * 0.8,
+    height: HEIGHT * 0.2,
+  },
+  carouselContainer: {
+    marginTop: 16,
   },
 });

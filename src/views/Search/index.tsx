@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, FlatList, Image, Pressable} from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  FlatList,
+  Image,
+  Pressable,
+  SafeAreaView,
+} from 'react-native';
 
 import {styles} from './styles';
 import {RESTAURANT_DATA} from '../../helper/constants';
@@ -61,17 +69,22 @@ const SearchScreen = props => {
   };
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        onChangeText={handleOnChange}
-        value={searchText}
-        style={styles.input}
-        placeholder="Search restaurant..."
-      />
-      <View style={styles.flatlist}>
-        <FlatList data={availableRestaurants} renderItem={renderRestaurants} />
+    <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        <TextInput
+          onChangeText={handleOnChange}
+          value={searchText}
+          style={styles.input}
+          placeholder="Search restaurant..."
+        />
+        <View style={styles.flatlist}>
+          <FlatList
+            data={availableRestaurants}
+            renderItem={renderRestaurants}
+          />
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -1,8 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, Image, FlatList, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  FlatList,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 import cloneDeep from 'lodash.clonedeep';
 
 import {styles} from './styles';
+import CustomHeader from '../../components/CustomHeader';
 
 const DetailsScreen = props => {
   const {item = {}} = props.route.params;
@@ -73,7 +81,11 @@ const DetailsScreen = props => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <CustomHeader
+        title="Details"
+        onLeftPress={() => props.navigation.goBack()}
+      />
       <Image source={{uri: item?.image}} style={styles.restaurantImg} />
       <View style={styles.restaurantDesc}>
         <Text style={styles.labelStyle}>{item.name}</Text>
@@ -96,7 +108,7 @@ const DetailsScreen = props => {
           <Text>{`${cartItems} ${itemOrItems} in cart`}</Text>
         </TouchableOpacity>
       )}
-    </View>
+    </SafeAreaView>
   );
 };
 

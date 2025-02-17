@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, SafeAreaView} from 'react-native';
 import LottieView from 'lottie-react-native';
 
 import {styles} from './styles';
@@ -17,7 +17,7 @@ const ConfirmationScreen = props => {
   const lottieToShow = orderStatus === 'success' ? require('../../helper/lottie/success.json') : require('../../helper/lottie/pending.json');
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <LottieView
         autoPlay
         loop
@@ -28,7 +28,7 @@ const ConfirmationScreen = props => {
       <TouchableOpacity style={styles.homeText} onPress={handleGoToHome}>
         <Text>Go to home</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 

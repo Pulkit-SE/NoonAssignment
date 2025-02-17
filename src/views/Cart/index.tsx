@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   ActivityIndicator,
+  SafeAreaView,
 } from 'react-native';
 
 import BillDetails from './Bill';
@@ -13,10 +14,11 @@ import PaymentOptions from './PaymentOptions';
 
 import {styles} from './styles';
 import {HEIGHT} from '../../helper/constants';
+import CustomHeader from '../../components/CustomHeader';
 
 const CartScreen = props => {
   const {menuItem = {}} = props.route.params;
-  const [isLoading, setIsLoading] = useState(false); // 'idle' | 'pending' | 'success' | 'error'
+  const [isLoading, setIsLoading] = useState(false);
 
   const renderItem = ({item}) => (
     <View style={styles.container}>
@@ -62,25 +64,31 @@ const CartScreen = props => {
   };
 
   return (
-    <View style={styles.wrapper}>
-      <View style={{maxHeight: HEIGHT * 0.45}}>
-        <FlatList
-          data={menuItem}
-          renderItem={renderItem}
-          contentContainerStyle={styles.flatlist}
-        />
-      </View>
-      <BillDetails
-        totalPrice={totalPrice}
-        addedTax={addedTax}
-        totalPriceWithTax={totalPriceWithTax}
+    <SafeAreaView style={styles.wrapper}>
+      <CustomHeader
+        title="Cart"
+        onLeftPress={() => props.navigation.goBack()}
       />
-      <PaymentOptions />
-      <TouchableOpacity style={styles.payNow} onPress={handleSuccess}>
-        <Text style={styles.payNowText}>Pay Now</Text>
-        {isLoading && <ActivityIndicator style={styles.activity} />}
-      </TouchableOpacity>
-    </View>
+      <View style={styles.wrapper}>
+        <View style={{maxHeight: HEIGHT * 0.45}}>
+          <FlatList
+            data={menuItem}
+            renderItem={renderItem}
+            contentContainerStyle={styles.flatlist}
+          />
+        </View>
+        <BillDetails
+          totalPrice={totalPrice}
+          addedTax={addedTax}
+          totalPriceWithTax={totalPriceWithTax}
+        />
+        <PaymentOptions />
+        <TouchableOpacity style={styles.payNow} onPress={handleSuccess}>
+          <Text style={styles.payNowText}>Pay Now</Text>
+          {isLoading && <ActivityIndicator style={styles.activity} />}
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 };
 

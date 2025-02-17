@@ -19,7 +19,15 @@ const SearchStack = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Search" component={SearchScreen} />
-      <Stack.Screen name="Details" component={DetailsScreen} />
+      <Stack.Screen
+        name="Details"
+        component={DetailsScreen}
+        options={{
+          headerBackImage: () => (
+            <Icon name="arrow-back" size={24} color="black" /> // Custom back button icon
+          ),
+        }}
+      />
       <Stack.Screen name="Cart" component={CartScreen} />
       <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
     </Stack.Navigator>
@@ -59,6 +67,7 @@ const AppNavigator = () => {
           },
           tabBarActiveTintColor: 'tomato', // Active tab color
           tabBarInactiveTintColor: 'gray', // Inactive tab color
+          headerShown: false,
         })}>
         <Tab.Screen name="Home" component={HomeStack} />
         <Tab.Screen name="Search" component={SearchStack} />

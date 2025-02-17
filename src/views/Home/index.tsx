@@ -1,20 +1,38 @@
 import React from 'react';
-import {View, Text, FlatList, Image, Pressable} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  Pressable,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 
 import {
   CAROUSEL_DATA,
-  RESTAURANT_DATA,
   HEIGHT,
+  RESTAURANT_DATA,
   WIDTH,
 } from '../../helper/constants';
 import {styles} from './styles';
 
 const HomeScreen = props => {
-  const renderBannerItems = ({item, index}) => {
+  const renderCarouselData = ({item, index}) => {
+    const handleDetailScreenNavigation = () => {
+      props.navigation.navigate('Details', {item});
+    };
+
     return (
-      <View>
-        <Text>{item.title}</Text>
-      </View>
+      <TouchableOpacity
+        style={styles.banner}
+        onPress={handleDetailScreenNavigation}>
+        <Image
+          source={{uri: item?.image}}
+          style={styles.bannerItem}
+          resizeMode="stretch"
+        />
+      </TouchableOpacity>
     );
   };
 
@@ -37,21 +55,16 @@ const HomeScreen = props => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View>
-        {/* <Carousel
-          renderItem={renderBannerItems}
-          autoPlayInterval={2000}
+        <Text style={styles.restaurantHeading}>Top Picks</Text>
+        <FlatList
           data={CAROUSEL_DATA}
-          height={HEIGHT * 0.3}
-          loop={true}
-          mode="parallax"
-          onSnapToItem={index => console.log('current index:', index)}
-          pagingEnabled={true}
-          snapEnabled={true}
-          style={{width: '100%'}}
-          width={WIDTH}
-        /> */}
+          renderItem={renderCarouselData}
+          horizontal={true}
+          contentContainerStyle={styles.carouselContainer}
+          showsHorizontalScrollIndicator={false}
+        />
         <Text style={styles.restaurantHeading}>Available Restaurants</Text>
         <FlatList
           horizontal={true}
@@ -62,7 +75,7 @@ const HomeScreen = props => {
           showsHorizontalScrollIndicator={false}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
