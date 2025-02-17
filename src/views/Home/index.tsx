@@ -29,8 +29,8 @@ const HomeScreen = props => {
         style={styles.itemContainer}>
         <Image source={{uri: item?.image}} style={styles.restaurantImg} />
         <View style={styles.restaurantDesc}>
-          <Text>{item.name}</Text>
-          <Text>{item.description}</Text>
+          <Text style={styles.title}>{item.name}</Text>
+          <Text numberOfLines={3}>{item.description}</Text>
         </View>
       </Pressable>
     );

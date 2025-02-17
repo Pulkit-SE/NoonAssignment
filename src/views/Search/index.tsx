@@ -5,6 +5,9 @@ import {styles} from './styles';
 import {RESTAURANT_DATA} from '../../helper/constants';
 import {debounce} from '../../helper/functions';
 
+const STAR_ICON =
+  'https://t4.ftcdn.net/jpg/05/40/09/17/360_F_540091788_AvDyNUSbtnKQfNccukuFa3ZlsHFnMYrK.jpg';
+
 const SearchScreen = props => {
   const [searchText, updateSearchText] = useState('');
   const [availableRestaurants, updateAvailableRestaurants] =
@@ -15,7 +18,7 @@ const SearchScreen = props => {
     if (!text) {
       updateAvailableRestaurants(RESTAURANT_DATA);
     } else {
-      const filtered = availableRestaurants.filter(item =>
+      const filtered = RESTAURANT_DATA.filter(item =>
         item.name.toLowerCase().includes(text.toLowerCase()),
       );
       updateAvailableRestaurants(filtered);
@@ -39,8 +42,19 @@ const SearchScreen = props => {
         <Image source={{uri: item?.image}} style={styles.image} />
         <View style={styles.nameContainer}>
           <Text style={styles.itemName}>{item?.name}</Text>
-          <Text>{item?.description}</Text>
-          <Text>{item?.rating}</Text>
+          <Text numberOfLines={2} style={styles.description}>
+            {item?.description}
+          </Text>
+          <View style={styles.ratings}>
+            <Text>{item?.rating}</Text>
+            <Image
+              source={{
+                uri: STAR_ICON,
+              }}
+              style={styles.imageStar}
+              resizeMode="contain"
+            />
+          </View>
         </View>
       </Pressable>
     );

@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 12,
     backgroundColor: 'white',
-    borderColor: 'gray',
+    borderColor: 'lightgray',
   },
   nameContainer: {
     justifyContent: 'center',
@@ -36,5 +36,18 @@ export const styles = StyleSheet.create({
   itemName: {
     fontWeight: '500',
     fontSize: 16,
+  },
+  ratings: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  imageStar: {
+    width: 12,
+    height: 12,
+    marginLeft: 2,
+  },
+  description: {
+    maxWidth: '88%',
+    color: 'gray',
   },
 });

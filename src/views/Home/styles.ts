@@ -8,6 +8,8 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     marginRight: 12,
     width: WIDTH * 0.7,
+    borderColor: 'lightgray',
+    backgroundColor: 'white',
   },
   restaurantImg: {
     borderTopLeftRadius: 12,
@@ -16,7 +18,9 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   restaurantDesc: {
-    paddingHorizontal: 8,
+    padding: 8,
+    justifyContent: 'center',
+    flex: 1,
   },
   container: {
     alignItems: 'center',
@@ -26,10 +30,14 @@ export const styles = StyleSheet.create({
   },
   contentContainer: {
     height: HEIGHT * 0.3,
-    marginTop: 16
+    marginTop: 16,
   },
-  restaurantHeading:{
+  restaurantHeading: {
     fontWeight: '500',
-    fontSize: 16
-  }
+    fontSize: 16,
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: '600',
+  },
 });
