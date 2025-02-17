@@ -1,6 +1,6 @@
 This repo is created for NOON's assignment.
 
-This repo has a food delivery app code. 
+This repo has a food delivery app code using React Native with TypeScript. 
 
 Features - 
 1. Home Screen
