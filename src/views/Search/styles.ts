@@ -53,4 +53,13 @@ export const styles = StyleSheet.create({
     maxWidth: '88%',
     color: 'gray',
   },
+  lottie: {
+    height: 250,
+    width: 250,
+  },
+  lottieParent: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+  },
 });

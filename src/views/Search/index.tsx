@@ -13,6 +13,7 @@ import {styles} from './styles';
 import {RESTAURANT_DATA} from '../../helper/constants';
 import {debounce} from '../../helper/functions';
 import CustomHeader from '../../components/CustomHeader';
+import LottieView from 'lottie-react-native';
 
 const STAR_ICON =
   'https://t4.ftcdn.net/jpg/05/40/09/17/360_F_540091788_AvDyNUSbtnKQfNccukuFa3ZlsHFnMYrK.jpg';
@@ -83,6 +84,17 @@ const SearchScreen = props => {
           <FlatList
             data={availableRestaurants}
             renderItem={renderRestaurants}
+            ListEmptyComponent={
+              <View style={styles.lottieParent}>
+                <LottieView
+                  autoPlay
+                  loop
+                  source={require('../../helper/lottie/noData.json')}
+                  style={styles.lottie}
+                />
+                <Text>No Data found!</Text>
+              </View>
+            }
           />
         </View>
       </View>
