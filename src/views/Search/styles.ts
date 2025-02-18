@@ -5,7 +5,10 @@ import {HEIGHT, WIDTH} from '../../helper/constants';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  parent: {
     padding: 12,
+    flex: 1,
   },
   image: {
     height: 80,

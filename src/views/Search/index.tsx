@@ -12,6 +12,7 @@ import {
 import {styles} from './styles';
 import {RESTAURANT_DATA} from '../../helper/constants';
 import {debounce} from '../../helper/functions';
+import CustomHeader from '../../components/CustomHeader';
 
 const STAR_ICON =
   'https://t4.ftcdn.net/jpg/05/40/09/17/360_F_540091788_AvDyNUSbtnKQfNccukuFa3ZlsHFnMYrK.jpg';
@@ -70,7 +71,8 @@ const SearchScreen = props => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.container}>
+      <CustomHeader title="Search" showBackButton={false} />
+      <View style={styles.parent}>
         <TextInput
           onChangeText={handleOnChange}
           value={searchText}

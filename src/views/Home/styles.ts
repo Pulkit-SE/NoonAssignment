@@ -23,10 +23,10 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   container: {
-    alignItems: 'center',
+    //alignItems: 'center',
     flex: 1,
-    justifyContent: 'center',
-    paddingTop: 16,
+    //justifyContent: 'center',
+    //paddingTop: 16,
   },
   contentContainer: {
     height: HEIGHT * 0.3,
@@ -45,14 +45,20 @@ export const styles = StyleSheet.create({
   banner: {
     width: WIDTH * 0.8,
     height: HEIGHT * 0.2,
-    marginLeft: 12,
+    marginHorizontal: 16,
   },
   bannerItem: {
     borderRadius: 12,
-    width: WIDTH * 0.8,
-    height: HEIGHT * 0.2,
+    aspectRatio: 5/2.8
   },
   carouselContainer: {
+    marginTop: 16,
+    paddingRight: 16
+  },
+  parent: {
+    paddingTop: 16,
+  },
+  margin16: {
     marginTop: 16,
   },
 });

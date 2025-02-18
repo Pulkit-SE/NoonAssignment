@@ -16,6 +16,7 @@ import {
   WIDTH,
 } from '../../helper/constants';
 import {styles} from './styles';
+import CustomHeader from '../../components/CustomHeader';
 
 const HomeScreen = props => {
   const renderCarouselData = ({item, index}) => {
@@ -56,7 +57,8 @@ const HomeScreen = props => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View>
+      <CustomHeader title="Home" showBackButton={false} />
+      <View style={styles.parent}>
         <Text style={styles.restaurantHeading}>Top Picks</Text>
         <FlatList
           data={CAROUSEL_DATA}
@@ -65,7 +67,7 @@ const HomeScreen = props => {
           contentContainerStyle={styles.carouselContainer}
           showsHorizontalScrollIndicator={false}
         />
-        <Text style={styles.restaurantHeading}>Available Restaurants</Text>
+        <Text style={[styles.restaurantHeading,styles.margin16]}>Available Restaurants</Text>
         <FlatList
           horizontal={true}
           bounces={false}

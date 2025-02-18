@@ -15,8 +15,9 @@ export const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   restaurantImg: {
-    height: HEIGHT * 0.3,
-    width: '100%',
+    // height: HEIGHT * 0.3,
+    // width: '100%',
+    aspectRatio: 3/2.3
   },
   restaurantDesc: {
     paddingHorizontal: 12,

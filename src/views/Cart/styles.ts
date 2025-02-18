@@ -6,7 +6,10 @@ export const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     height: HEIGHT,
+  },
+  parent: {
     padding: 12,
+    flex:1
   },
   container: {
     alignItems: 'center',

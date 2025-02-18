@@ -69,7 +69,7 @@ const CartScreen = props => {
         title="Cart"
         onLeftPress={() => props.navigation.goBack()}
       />
-      <View style={styles.wrapper}>
+      <View style={styles.parent}>
         <View style={{maxHeight: HEIGHT * 0.45}}>
           <FlatList
             data={menuItem}
