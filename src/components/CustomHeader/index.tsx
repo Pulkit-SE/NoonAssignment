@@ -6,8 +6,8 @@ import {styles} from './styles';
 
 interface CustomHeaderProps {
   title: string;
-  onLeftPress: () => void;
-  onRightPress: () => void;
+  onLeftPress?: () => void;
+  onRightPress?: () => void;
   leftIcon?: string;
   rightIcon?: string | undefined;
   backgroundColor?: string;
