@@ -4,9 +4,8 @@ import {
   View,
   SafeAreaView,
   TextInput,
-  Button,
-  Pressable,
   Alert,
+  TouchableOpacity,
 } from 'react-native';
 import axios from 'axios';
 import {useSelector, useDispatch} from 'react-redux';
@@ -15,9 +14,10 @@ import CustomHeader from '../../components/CustomHeader';
 
 import {styles} from './styles';
 import {LOGIN_API} from '../../helper/api';
-import {setUserData} from '../../redux/slices/user';
+import {setUserToken} from '../../redux/slices/user';
+import {storeDataInAsyncStorge} from '../../helper/functions';
 
-const Login = props => {
+const Login = (props: any) => {
   const {navigation} = props;
   const [email, updateEmail] = useState('');
   const [password, updatePassword] = useState('');
@@ -41,7 +41,8 @@ const Login = props => {
       })
       .then(res => {
         if (res.status === 201) {
-          dispatch(setUserData({...res.data.data, token: res.data.data.token}));
+          dispatch(setUserToken({token: res.data.data.token}));
+          storeDataInAsyncStorge('user-token', res.data.data.token);
         } else {
           Alert.alert(res.data.data);
         }
@@ -52,6 +53,8 @@ const Login = props => {
   const handleRegister = () => {
     navigation.navigate('Register');
   };
+
+  const isSubmitDisabled = !email && !password;
 
   return (
     <SafeAreaView>
@@ -69,12 +72,15 @@ const Login = props => {
           onChangeText={val => handleChange('password', val)}
           style={styles.input}
         />
-        <Pressable onPress={handleSubmit} style={styles.submitBtn}>
+        <TouchableOpacity
+          onPress={handleSubmit}
+          style={styles.submitBtn}
+          disabled={isSubmitDisabled}>
           <Text>LOGIN</Text>
-        </Pressable>
-        <Pressable style={styles.register} onPress={handleRegister}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.register} onPress={handleRegister}>
           <Text>Register</Text>
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

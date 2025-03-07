@@ -5,16 +5,40 @@
  * @format
  */
 
-import React from 'react';
-import {Provider, useSelector} from 'react-redux';
+import React, {useEffect, useState} from 'react';
+import {Provider, useDispatch, useSelector} from 'react-redux';
+import {ActivityIndicator, SafeAreaView} from 'react-native';
 
 import AppNavigator from './src/navigation/AppNavigator';
 import AuthNavigator from './src/navigation/AuthNavigator';
 
 import {store} from './src/redux/store';
+import {getDataFromAsyncStorge} from './src/helper/functions';
+import styles from './styles';
+import {setUserToken} from './src/redux/slices/user';
 
 const Navigator = () => {
-  const userToken = useSelector((state: any) => state.user.token);
+  const dispatch = useDispatch();
+  const {token: userToken} = useSelector((state: any) => state.user);
+
+  useEffect(() => {
+    const fetchToken = async () => {
+      const storedToken = await getDataFromAsyncStorge('user-token');
+      dispatch(setUserToken(storedToken || undefined));
+    };
+    if (!userToken) {
+      fetchToken();
+    }
+  }, [userToken]);
+
+  if (userToken === undefined) {
+    return (
+      <SafeAreaView style={styles.wrapper}>
+        <ActivityIndicator size={'large'} />
+      </SafeAreaView>
+    );
+  }
+
   return userToken ? <AppNavigator /> : <AuthNavigator />;
 };
 

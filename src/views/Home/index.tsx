@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   Text,
@@ -8,17 +8,33 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from 'react-native';
+import axios from 'axios';
+import {useDispatch} from 'react-redux';
 
-import {
-  CAROUSEL_DATA,
-  HEIGHT,
-  RESTAURANT_DATA,
-  WIDTH,
-} from '../../helper/constants';
-import {styles} from './styles';
+import {setUserData} from '../../redux/slices/user';
 import CustomHeader from '../../components/CustomHeader';
+import {getDataFromAsyncStorge} from '../../helper/functions';
 
-const HomeScreen = props => {
+import {CAROUSEL_DATA, RESTAURANT_DATA} from '../../helper/constants';
+import {UDER_DETAILS_API} from '../../helper/api';
+import {styles} from './styles';
+
+const HomeScreen = (props: any) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchToken = async () => {
+      const storedToken = await getDataFromAsyncStorge('user-token');
+      if (storedToken) {
+        axios.post(UDER_DETAILS_API, {token: storedToken}).then(res => {
+          const {name, email, mobile} = res.data.data;
+          dispatch(setUserData({name, email, mobile}));
+        });
+      }
+    };
+    fetchToken();
+  }, []);
+
   const renderCarouselData = ({item, index}) => {
     const handleDetailScreenNavigation = () => {
       props.navigation.navigate('Details', {item});
@@ -67,7 +83,9 @@ const HomeScreen = props => {
           contentContainerStyle={styles.carouselContainer}
           showsHorizontalScrollIndicator={false}
         />
-        <Text style={[styles.restaurantHeading,styles.margin16]}>Available Restaurants</Text>
+        <Text style={[styles.restaurantHeading, styles.margin16]}>
+          Available Restaurants
+        </Text>
         <FlatList
           horizontal={true}
           bounces={false}

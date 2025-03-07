@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
-import {Text, SafeAreaView, Pressable, TextInput, View} from 'react-native';
+import {
+  Text,
+  SafeAreaView,
+  Pressable,
+  TextInput,
+  View,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
 
 import CustomHeader from '../../components/CustomHeader';
 import {styles} from '../Login/styles';
@@ -34,9 +42,20 @@ const Register = props => {
       password,
       mobile,
     };
-    console.log('xxx')
-    axios.post(REGISTER_API, userData).then(res=>console.log('res',res)).catch(ex=>console.log('xxx2',ex));
+    console.log('xxx');
+    axios
+      .post(REGISTER_API, userData)
+      .then(res => {
+        if (res.data.status === 'failure') {
+          Alert.alert(res.data.data);
+        } else {
+          navigation.navigate('Login');
+        }
+      })
+      .catch();
   };
+
+  const isSubmitDisabled = !email && !password && !mobile && !name;
 
   return (
     <SafeAreaView>
@@ -70,9 +89,12 @@ const Register = props => {
           onChangeText={val => handleChange('name', val)}
           style={styles.input}
         />
-        <Pressable onPress={handleSubmit} style={styles.submitBtn}>
+        <TouchableOpacity
+          onPress={handleSubmit}
+          style={styles.submitBtn}
+          disabled={isSubmitDisabled}>
           <Text>REGISTER</Text>
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

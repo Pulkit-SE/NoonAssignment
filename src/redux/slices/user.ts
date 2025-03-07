@@ -13,7 +13,6 @@ export const userSlice = createSlice({
       state.mobile = action.payload.mobile;
       state.name = action.payload.name;
       state.email = action.payload.email;
-      state.token = action.payload.token;
     },
     logout: state => {
       state.mobile = null;
@@ -21,9 +20,12 @@ export const userSlice = createSlice({
       state.email = null;
       state.token = null;
     },
+    setUserToken: (state, action: PayloadAction<any>) => {
+      state.token = action.payload.token;
+    },
   },
 });
 
 // Export actions and reducer
-export const {setUserData, logout} = userSlice.actions;
+export const {setUserData, logout, setUserToken} = userSlice.actions;
 export default userSlice.reducer;

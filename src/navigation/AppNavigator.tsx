@@ -10,6 +10,7 @@ import SearchScreen from '../views/Search';
 import DetailsScreen from '../views/Details';
 import CartScreen from '../views/Cart';
 import ConfirmationScreen from '../views/Confirmation';
+import ProfileScreen from '../views/Profile';
 
 // Create the tab navigator
 const Tab = createBottomTabNavigator();
@@ -45,6 +46,14 @@ const HomeStack = () => {
   );
 };
 
+const ProfileStack = () => {
+  return (
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+    </Stack.Navigator>
+  );
+};
+
 const AppNavigator = () => {
   return (
     <NavigationContainer>
@@ -71,6 +80,7 @@ const AppNavigator = () => {
         })}>
         <Tab.Screen name="Home" component={HomeStack} />
         <Tab.Screen name="Search" component={SearchStack} />
+        <Tab.Screen name="Profile" component={ProfileStack} />
       </Tab.Navigator>
     </NavigationContainer>
   );
